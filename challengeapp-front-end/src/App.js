@@ -16,24 +16,24 @@ function App() {
   }, []);
 
   const fetchChallenges = async () => {
-      try {
-        const response = await axios.get('http://localhost:8080/challenges');
-        setChallenges(response.data);
-        
-      } catch (error) {
-        console.error("Error fetching challenges: ", error);
-      }
-    };
+    try {
+      const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/challenges`);
+      setChallenges(response.data);
 
-    const handleChallengeAdded = () => {
-      fetchChallenges();
-    };
+    } catch (error) {
+      console.error("Error fetching challenges: ", error);
+    }
+  };
+
+  const handleChallengeAdded = () => {
+    fetchChallenges();
+  };
 
   return (
     <div className="container mt-5">
       <h1 className="text-center mb-4">Monthly Challenges 🔥🔥</h1>
-      <AddChallenge onChallengeAdded={handleChallengeAdded}/>
-      <ChallengeList Challenges={Challenges}/>
+      <AddChallenge onChallengeAdded={handleChallengeAdded} />
+      <ChallengeList Challenges={Challenges} />
     </div>
   );
 }

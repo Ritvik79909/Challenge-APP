@@ -1,5 +1,6 @@
-function Challenge({challenge}){
-    return(
+function Challenge({ challenge }) {
+    return (
+        // eslint-disable-next-line jsx-a11y/anchor-is-valid
         <a href="#" className="list-group-item list-group-item-action" aria-current="true">
             <div className="d-flex w-100 justify-content-between">
                 <h4 className="mb-1">{challenge.month}</h4>
